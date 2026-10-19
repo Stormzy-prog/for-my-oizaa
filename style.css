@@ -1,0 +1,416 @@
+/* =========================================
+   FOR MY OIZA ❤️
+   A romantic website made with love
+   ========================================= */
+
+/* 1. RESET AND GLOBAL STYLES */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 30px;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background:
+        radial-gradient(ellipse at top, #2b0b19 0%, #12070c 48%, #080508 100%);
+    color: #fff0f3;
+    font-family: Georgia, "Times New Roman", serif;
+    text-align: center;
+    line-height: 1.7;
+}
+
+button {
+    font: inherit;
+}
+
+button:focus-visible {
+    outline: 2px solid #ffb3c1;
+    outline-offset: 5px;
+}
+
+::selection {
+    background: #e92350;
+    color: white;
+}
+
+
+/* 2. SHARED TEXT STYLES */
+
+.subtitle {
+    color: #ff8299;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+
+h1,
+h2 {
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+h2 {
+    color: #ff4f70;
+    font-size: clamp(28px, 5vw, 42px);
+    margin-bottom: 20px;
+}
+
+p {
+    overflow-wrap: break-word;
+}
+
+
+/* 3. WELCOME SECTION */
+
+.welcome {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 22px;
+    position: relative;
+}
+
+.welcome h1 {
+    color: #ff4568;
+    font-size: clamp(42px, 9vw, 76px);
+    text-shadow:
+        0 0 10px rgba(255, 45, 91, 0.6),
+        0 0 35px rgba(255, 45, 91, 0.25);
+    margin: 10px 0 22px;
+    animation: gentle-glow 3s ease-in-out infinite alternate;
+}
+
+.love-intro {
+    max-width: 480px;
+    color: #f4c5cf;
+    font-size: clamp(16px, 3vw, 20px);
+    margin-bottom: 30px;
+}
+
+#open-heart {
+    border: 1px solid #ff6b86;
+    border-radius: 50px;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #ed244f, #a50d36);
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 0 25px rgba(237, 36, 79, 0.3);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+#open-heart:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 0 35px rgba(237, 36, 79, 0.55);
+}
+
+#open-heart:disabled {
+    opacity: 0.9;
+    cursor: default;
+}
+
+#surprise {
+    max-width: 550px;
+    color: #ffd5de;
+    font-size: 18px;
+    margin-top: 28px;
+    padding: 20px;
+    border: 1px solid #762139;
+    border-radius: 16px;
+    background: rgba(62, 12, 31, 0.45);
+    animation: fade-up 0.6s ease both;
+}
+
+#surprise[hidden] {
+    display: none;
+}
+
+
+/* 4. ROMANTIC MUSIC PLAYER */
+
+.music-player {
+    width: calc(100% - 36px);
+    max-width: 680px;
+    margin: 10px auto 70px;
+    padding: 42px 24px;
+    position: relative;
+    background:
+        linear-gradient(145deg, rgba(53, 15, 31, 0.95), rgba(18, 7, 12, 0.95));
+    border: 1px solid #762139;
+    border-radius: 24px;
+    box-shadow:
+        0 0 35px rgba(255, 35, 82, 0.1),
+        inset 0 0 30px rgba(255, 35, 82, 0.03);
+}
+
+.music-player h2 {
+    margin: 12px 0 18px;
+}
+
+.music-player > p:not(.subtitle) {
+    color: #e8bac5;
+    margin: 10px auto;
+    max-width: 460px;
+}
+
+#music-button {
+    margin-top: 18px;
+    padding: 14px 28px;
+    border: 1px solid #ff7791;
+    border-radius: 40px;
+    background: #e92350;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 0 22px rgba(233, 35, 80, 0.22);
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#music-button:hover {
+    background: #ff456d;
+    transform: scale(1.04);
+    box-shadow: 0 0 30px rgba(233, 35, 80, 0.4);
+}
+
+#music-status {
+    color: #ff9aaf !important;
+    font-size: 13px;
+    margin-top: 18px !important;
+}
+
+
+/* 5. MEMORIES AND PHOTO GALLERY */
+
+.memories {
+    width: calc(100% - 36px);
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 45px 0 80px;
+}
+
+.memories h2 {
+    margin-bottom: 15px;
+}
+
+.gallery-intro {
+    max-width: 520px;
+    margin: 0 auto 35px;
+    color: #dcaeba;
+    padding: 0 10px;
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    text-align: left;
+}
+
+.photo-gallery figure {
+    min-width: 0;
+    margin: 0;
+    padding: 12px;
+    overflow: hidden;
+    background: linear-gradient(145deg, #25121b, #160b11);
+    border: 1px solid #622038;
+    border-radius: 18px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.photo-gallery figure:hover {
+    transform: translateY(-6px);
+    border-color: #e7476a;
+    box-shadow: 0 12px 35px rgba(233, 35, 80, 0.18);
+}
+
+.photo-gallery img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    background: #211018;
+    border-radius: 11px;
+    transition: transform 0.4s ease;
+}
+
+.photo-gallery figure:hover img {
+    transform: scale(1.015);
+}
+
+.photo-gallery figcaption {
+    padding: 14px 6px 5px;
+    color: #f4c5cf;
+    font-size: 15px;
+    text-align: center;
+}
+
+
+/* 6. LOVE LETTER */
+
+.love-letter {
+    width: calc(100% - 36px);
+    max-width: 780px;
+    margin: 0 auto 80px;
+    padding: 48px 32px;
+    background:
+        linear-gradient(145deg, rgba(39, 14, 26, 0.94), rgba(17, 8, 13, 0.98));
+    border: 1px solid #762139;
+    border-radius: 24px;
+    box-shadow: 0 0 35px rgba(255, 30, 75, 0.08);
+}
+
+.love-letter h2 {
+    margin-bottom: 28px;
+}
+
+.love-letter p:not(.subtitle) {
+    max-width: 610px;
+    margin: 0 auto 20px;
+    color: #f0cbd3;
+    font-size: 17px;
+    line-height: 2;
+}
+
+.love-letter .signature {
+    margin-top: 30px !important;
+    color: #ff718b !important;
+    font-size: 21px !important;
+    font-style: italic;
+}
+
+
+/* 7. FOOTER */
+
+footer {
+    padding: 28px 18px 35px;
+    border-top: 1px solid rgba(118, 33, 57, 0.4);
+    color: #b77e8c;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+
+/* 8. ANIMATIONS */
+
+@keyframes gentle-glow {
+    from {
+        text-shadow:
+            0 0 10px rgba(255, 45, 91, 0.35),
+            0 0 20px rgba(255, 45, 91, 0.12);
+    }
+
+    to {
+        text-shadow:
+            0 0 18px rgba(255, 45, 91, 0.65),
+            0 0 40px rgba(255, 45, 91, 0.25);
+    }
+}
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* 9. MOBILE RESPONSIVENESS */
+
+@media (max-width: 600px) {
+    .welcome {
+        min-height: 78vh;
+        padding: 65px 20px;
+    }
+
+    .welcome h1 {
+        font-size: clamp(38px, 11vw, 58px);
+    }
+
+    .subtitle {
+        font-size: 10px;
+        letter-spacing: 2.5px;
+    }
+
+    .music-player {
+        padding: 32px 18px;
+        margin-bottom: 50px;
+    }
+
+    .memories {
+        padding-top: 25px;
+        padding-bottom: 55px;
+    }
+
+    .photo-gallery {
+        gap: 12px;
+    }
+
+    .photo-gallery figure {
+        padding: 7px;
+        border-radius: 13px;
+    }
+
+    .photo-gallery img {
+        aspect-ratio: 3 / 4;
+        border-radius: 8px;
+    }
+
+    .photo-gallery figcaption {
+        padding: 10px 3px 4px;
+        font-size: 13px;
+    }
+
+    .love-letter {
+        padding: 35px 20px;
+        margin-bottom: 50px;
+    }
+
+    .love-letter p:not(.subtitle) {
+        font-size: 16px;
+        line-height: 1.85;
+    }
+}
+
+
+/* 10. ACCESSIBILITY: RESPECT REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

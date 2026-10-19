@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#12070c">
+
+    <title>For My Oiza ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- WELCOME SECTION -->
+    <main class="welcome" id="home">
+        <p class="subtitle">A LITTLE WORLD MADE JUST FOR YOU</p>
+
+        <h1>For My Oiza ❤️</h1>
+
+        <p class="love-intro">
+            My Roohi, my favourite person, my heart's home.
+        </p>
+
+        <button id="open-heart" type="button">
+            Open My Heart ♡
+        </button>
+
+        <p id="surprise" hidden>
+            Every love story is special, but ours will always be
+            my favourite. You make ordinary moments beautiful,
+            and I am grateful that I get to love you. ❤️
+        </p>
+    </main>
+
+
+    <!-- ROMANTIC MUSIC PLAYER -->
+    <section class="music-player" id="music">
+        <p class="subtitle">A SONG FOR MY FAVOURITE PERSON</p>
+
+        <h2>Our Little Love Song 🎶</h2>
+
+        <p>
+            For you, my Roohi. Every note reminds me of you. ❤️
+        </p>
+
+        <audio id="our-song" loop preload="none">
+            <source src="music/our-song.mp3" type="audio/mpeg">
+            Your browser does not support audio.
+        </audio>
+
+        <button id="music-button" type="button">
+            ♫ Play Our Song
+        </button>
+
+        <p id="music-status" aria-live="polite">
+            Press play when you're ready, my love ❤️
+        </p>
+    </section>
+
+
+    <!-- PHOTO GALLERY -->
+    <section class="memories" id="memories">
+        <p class="subtitle">OUR LITTLE WORLD</p>
+
+        <h2>Moments With My Roohi ❤️</h2>
+
+        <p class="gallery-intro">
+            A few memories, a million feelings, and one girl
+            who means so much to me.
+        </p>
+
+        <div class="photo-gallery">
+
+            <figure>
+                <img
+                    src="images/roohi.jpeg"
+                    alt="My beautiful Oiza"
+                    loading="lazy">
+                <figcaption>My favourite girl ❤️</figcaption>
+            </figure>
+
+            <figure>
+                <img
+                    src="images/us-together.jpeg"
+                    alt="A memory of us together"
+                    loading="lazy">
+                <figcaption>My favourite kind of happiness 🥹</figcaption>
+            </figure>
+
+            <figure>
+                <img
+                    src="images/our-memory.jpeg"
+                    alt="A special memory together"
+                    loading="lazy">
+                <figcaption>Little moments, big memories ❤️</figcaption>
+            </figure>
+
+            <figure>
+                <img
+                    src="images/my-favourite.jpeg"
+                    alt="Another memory of us"
+                    loading="lazy">
+                <figcaption>And many more to come, In Sha Allah ❤️</figcaption>
+            </figure>
+
+        </div>
+    </section>
+
+
+    <!-- LOVE LETTER -->
+    <section class="love-letter" id="love-letter">
+        <p class="subtitle">JUST BETWEEN US</p>
+
+        <h2>To My Roohi 💌</h2>
+
+        <p>
+            If I could give you one thing in life, I would give
+            you the ability to see yourself through my eyes.
+            Maybe then you would understand how special you are
+            to me.
+        </p>
+
+        <p>
+            You are more than someone I love. You are someone
+            I want to keep learning, laughing, growing, and
+            making beautiful memories with.
+        </p>
+
+        <p>
+            I love the little things that make you who you are.
+            I hope that even on the days when life feels difficult,
+            you remember that you deserve kindness, happiness,
+            patience, and a love that keeps choosing you.
+        </p>
+
+        <p>
+            No website could ever hold everything I feel for you,
+            but I hope this little corner of the internet reminds
+            you that someone out here thinks you are worth
+            celebrating. Always. ❤️
+        </p>
+
+        <p class="signature">
+            Forever your Farouq ❤️
+        </p>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        Made with love, especially for Oiza ❤️
+    </footer>
+
+
+    <!-- BUTTON FUNCTIONALITY -->
+    <script>
+        // Reveal the special love message
+        const openButton = document.getElementById("open-heart");
+        const surpriseMessage = document.getElementById("surprise");
+
+        openButton.addEventListener("click", function () {
+            surpriseMessage.hidden = false;
+            openButton.textContent = "You are so loved, Oiza ❤️";
+            openButton.disabled = true;
+        });
+
+
+        // Play and pause the romantic song
+        const song = document.getElementById("our-song");
+        const musicButton = document.getElementById("music-button");
+        const musicStatus = document.getElementById("music-status");
+
+        musicButton.addEventListener("click", async function () {
+            if (song.paused) {
+                try {
+                    await song.play();
+
+                    musicButton.textContent = "⏸ Pause Our Song";
+                    musicStatus.textContent =
+                        "Playing just for you, Oiza ❤️";
+
+                } catch (error) {
+                    musicStatus.textContent =
+                        "Couldn't play the song. Check that your audio file exists.";
+                }
+            } else {
+                song.pause();
+
+                musicButton.textContent = "♫ Play Our Song";
+                musicStatus.textContent =
+                    "Paused for a little moment ❤️";
+            }
+        });
+    </script>
+
+</body>
+</html>
